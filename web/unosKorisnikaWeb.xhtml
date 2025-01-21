@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp">
+
+    <h:head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title>Tutorial</title>
+
+        <h:outputStylesheet name="bootstrap.min.css" library="resources"/>
+
+        <h:outputStylesheet name="mycss2.css" library="resources"/>
+
+        <h:outputScript name="bootstrap.bundle.min.js" library="resources"/>
+
+    </h:head>
+
+    <h:body>
+
+        <div class="pozicionirajDIVGreska2 " id="hideMe" >
+
+             <h:messages class="alert alert-danger alert-dismissible fade show"  />            
+
+        </div>
+
+        <div class="container">
+
+          
+
+            <div class="mt-4 p-5 bg-light  rounded">
+
+                <span class=" fs-2 lead">Dobro došli na stranicu za registraciju i odabir kućnog ljubimca</span>         
+
+               <br/><br/>
+
+                <a jsf:outcome="index">Home</a>             
+
+            </div>
+
+             <div class="p-5 ">
+
+            <h3>               
+
+                Molimo Vas da unesete svoje korisničke podatke:               
+
+              </h3>
+
+            <h:form>
+
+                <ezcomp:inputText cssDIV="form-floating mb-3" TIP="text" CSS="form-control" ID="floatingImeiPrezime" PHOLDER="Ime i prezime korisnika" VALUE="#{korisnikPogled.imeIPrezime}"/>
+
+                <ezcomp:inputText cssDIV="form-floating mb-3" TIP="text" CSS="form-control" ID="floatingInput" PHOLDER="Korisničko ime: " VALUE="#{korisnikPogled.korisnickoIme}"/>
+
+                <ezcomp:inputText cssDIV="form-floating mb-3" TIP="password" CSS="form-control" ID="floatingPassword" PHOLDER="Korisnička lozinka: " VALUE="#{korisnikPogled.korisnickaLozinka}"/>
+
+                <br/>
+
+                <h:commandButton class="btn btn-outline-dark float-end" value="Unesi korisnika!" action="#{korisnikPogled.unosNovogKorisnikaWeb()}"/>            
+
+              </h:form>
+
+             </div>
+
+          
+
+        </div>
+
+    </h:body>
+
+</html>

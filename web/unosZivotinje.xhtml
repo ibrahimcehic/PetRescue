@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Tutorial</title>
+        <h:outputStylesheet name="bootstrap.min.css" library="resources"/>
+        <h:outputStylesheet name="mycss2.css" library="resources"/>
+        <h:outputScript name="bootstrap.bundle.min.js" library="resources"/>
+    </h:head>
+    <h:body>
+        <div class="pozicionirajDIVGreska2 " id="hideMe" >
+            <h:messages class="alert alert-danger alert-dismissible fade show"  />            
+        </div>
+        <div class="container">
+            <div class="mt-4 p-5 bg-light  rounded">
+                <span class=" fs-2 lead">Stranica za dodavanje nove zivotinje</span>         
+                <br/><br/>
+                <a jsf:outcome="pocetna">Vrati na Pocetnu stranicu</a>             
+            </div>
+            <div class="p-5 ">
+                <h3>               
+                    Molimo Vas da unesete podatke za zivotnju:               
+                </h3>
+                <h:form>
+                    <ezcomp:inputText cssDIV="form-floating mb-3" TIP="text" CSS="form-control" ID="floatingImeZivotinje" PHOLDER="Ime zivotinje: " VALUE="#{zivotinjaPogled.imeZivotinje}"/>
+                    <h:selectOneMenu value="#{zivotinjaPogled.vrstaZivotinje}"  styleClass="form-select mb-3" >
+                        <f:selectItem itemValue="Pas" itemLabel="Pas" />
+                        <f:selectItem itemValue="Macka" itemLabel="Macka" />
+                    </h:selectOneMenu>
+                    <div class="mb-3">
+                        <p:outputLabel for="inline" value="Datum prijema zivotinje: " />  
+                        <p:calendar id="inline" value="#{zivotinjaPogled.datumPrijema}"  pattern="dd/MM/yyyy" mode="popup" /> 
+                    </div>
+                <!--<ezcomp:inputText cssDIV="form-floating mb-3" TIP="text" CSS="form-control" ID="floatingDatumPrijema" PHOLDER="Datum Prijema zivotinje: " VALUE="#{zivotinjaPogled.datumPrijema}"/>
+                    -->
+                    <ezcomp:inputText cssDIV="form-floating mb-3" TIP="text" CSS="form-control" ID="floatingInput" PHOLDER="Starost zivotinje: " VALUE="#{zivotinjaPogled.starostZivotinje}"/>
+                    <br/>
+                    <h:commandButton class="btn btn-outline-dark float-end" value="Unesi zivotinju!" action="#{zivotinjaPogled.unosNoveZivotinje()}"/>            
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
